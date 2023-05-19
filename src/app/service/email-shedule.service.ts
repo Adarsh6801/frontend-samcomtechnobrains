@@ -12,15 +12,15 @@ export class EmailSheduleService {
 
   getAllEmailShedule(){
     const url = `${API_BASE_URL}${API_ENDPOINTS.getAllEmailShedule}`;
-    this.http.get(url)
+    return this.http.get(url)
   }
   sheduleEmail(data:EmailSchedule){
     const url = `${API_BASE_URL}${API_ENDPOINTS.sheduleEmail}`;
-    this.http.post(url,data)
+    return this.http.post(url,data)
   }
   filterEmail(data:FilterDate){
     const url = `${API_BASE_URL}${API_ENDPOINTS.filterEmail}`;
-    this.http.post(url,data)
+    return this.http.post(url,data)
 
   }
 }

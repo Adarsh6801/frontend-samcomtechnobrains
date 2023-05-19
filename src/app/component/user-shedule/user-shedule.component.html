@@ -1,5 +1,24 @@
 <div class="p-4">
-  <button mat-raised-button (click)="openDialog('0ms', '0ms')" class="mb-4">Schedule</button>
+  <div class="flex justify-between mb-4">
+    <div>
+      <button mat-raised-button (click)="openDialog('0ms', '0ms')">Schedule</button>
+    </div>
+    <div class="flex">
+      <form [formGroup]="filterForm" (ngSubmit)="onSubmit()" class="flex">
+        <div class="mr-4">
+          <label for="startDate" class="mr-2">Start Date:</label>
+          <input type="date" id="startDate" formControlName="startDate" class="border border-gray-300 rounded py-1 px-2">
+        </div>
+        <div>
+          <label for="endDate" class="mr-2">End Date:</label>
+          <input type="date" id="endDate" formControlName="endDate" class="border border-gray-300 rounded py-1 px-2">
+        </div>
+        <div class="ml-4">
+          <button mat-raised-button color="primary" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
   <table class="w-full border-collapse">
     <thead>
       <tr>
@@ -8,11 +27,11 @@
         <th class="py-2 px-4 bg-gray-200">Subject</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody *ngFor="let email of email">
       <tr class="text-center">
-        <td class="py-2 px-4 border-b">email@example.com</td>
-        <td class="py-2 px-4 border-b">2023-05-19 10:00 AM</td>
-        <td class="py-2 px-4 border-b">Sample Subject</td>
+        <td class="py-2 px-4 border-b">email.email</td>
+        <td class="py-2 px-4 border-b">email.EmailSchedule</td>
+        <td class="py-2 px-4 border-b">email.subject</td>
       </tr>
       <!-- Add more rows dynamically based on your data -->
     </tbody>
